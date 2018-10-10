@@ -13,11 +13,12 @@ import { CheapSharkServices } from '../../services/cheapSharkServices/cheapShark
 })
 export class StorePage {
 
+  private gameList : Object[];
+
   constructor(
     public navCtrl: NavController,
     public cheapSharkServices: CheapSharkServices,
-  ) {
-  }
+  ) {}
 
   ngOnInit(){
 
@@ -26,6 +27,7 @@ export class StorePage {
     this.cheapSharkServices.getExtensiveGameListByName(testGameName).then( gameList => {
 
       // Work with the game list in here once it's returned
+      this.gameList = gameList;
       console.log(gameList);
     });
 

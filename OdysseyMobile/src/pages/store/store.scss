@@ -1,3 +1,21 @@
 page-store {
 
+  .Store-Content{
+    background-color: $Main-Grey;
+
+    .Store-Content-Background{
+      .Store-Content-Card{
+        .Store-Content-Card-Image-Holder{
+
+          .Store-Content-Card-Image{
+            object-fit: cover;
+            height: 70px;
+            width: 55px;
+            border: 1px solid $Main-Grey;
+            object-position: 50% 50%;
+          }
+        }
+      }
+    }
+  }
 }
