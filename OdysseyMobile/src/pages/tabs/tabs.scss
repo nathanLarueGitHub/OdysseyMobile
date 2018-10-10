@@ -1,4 +1,8 @@
-tabs-component{
-  background-color: red;
-  color: red;
+.tabbar {
+	a.tab-button[aria-selected=true] {
+		color: #d95eff;
+		.tab-button-icon {
+			color: #d95eff;
+		}
+	}
 }
