@@ -8,7 +8,7 @@ import { NavController } from 'ionic-angular';
 export class AccountPage {
 
   constructor(public navCtrl: NavController) {
-
+    
   }
 
 }

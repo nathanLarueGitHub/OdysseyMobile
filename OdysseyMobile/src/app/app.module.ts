@@ -11,6 +11,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+// Import Injectables
+import { CheapSharkServices } from '../services/cheapSharkServices/cheapSharkServices'
+
+// Angular Services
+import { HttpModule } from "@angular/http";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -21,6 +27,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -34,6 +41,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    CheapSharkServices,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
