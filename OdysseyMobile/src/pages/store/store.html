@@ -1,28 +1,32 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title text-center>Store</ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding
              class='Store-Content'>
-  <div class='Store-Content-Background'>
-    <ion-card *ngFor='let game of gameList'
-              class='Store-Content-Card'>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-2>
-            <ion-avatar item-start
-                        class='Store-Content-Card-Image-Holder'>
-              <img src='{{game.thumb}}'
-                   class='Store-Content-Card-Image'>
-            </ion-avatar>
-          </ion-col>
-          <ion-col>
-            <h2>{{game.external}}</h2>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card>
-  </div>
+  <ion-input class='Store-Input'
+             type='text'
+             placeholder='Test'
+             (keypress)='onInputChange($event)'
+             [(ngModel)]='searchGameName'>
+  </ion-input>
+  <ion-spinner item-start
+               name='crescent'
+               class='spinnerGameList'
+               [hidden]='!isLoading'>
+  </ion-spinner>
+  <ion-card *ngFor='let game of gameList'
+            class='Store-Content-Card'
+            [hidden]='isLoading'>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2>
+          <ion-avatar item-start
+                      class='Store-Content-Card-Image-Holder'>
+            <img src='{{game.thumb}}'
+                 class='Store-Content-Card-Image'>
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <h2 class='Store-Content-Card-Text'>{{game.external}}</h2>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

@@ -3,19 +3,39 @@ page-store {
   .Store-Content{
     background-color: $Main-Grey;
 
-    .Store-Content-Background{
-      .Store-Content-Card{
-        .Store-Content-Card-Image-Holder{
+    .Store-Input{
+      background-color: $Pale-Grey;
+      color: white;
+    }
 
-          .Store-Content-Card-Image{
-            object-fit: cover;
-            height: 70px;
-            width: 55px;
-            border: 1px solid $Main-Grey;
-            object-position: 50% 50%;
-          }
+    .Store-Content-Card{
+      background-color: $Pale-Grey;
+      padding-left: 0px;
+      padding-right: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+
+      .Store-Content-Card-Image-Holder{
+        .Store-Content-Card-Image{
+          object-fit: cover;
+          height: 70px;
+          width: 55px;
+          border: 1px solid $Main-Grey;
+          object-position: 50% 50%;
         }
       }
+
+      .Store-Content-Card-Text{
+        color: white;
+      }
+    }
+
+    .spinnerGameList {
+      position: absolute;
+      fill: white;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 }
