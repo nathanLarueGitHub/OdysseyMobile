@@ -1,11 +1,20 @@
-<ion-content padding
-             class='Store-Content'>
-  <ion-input class='Store-Input'
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title text-center>
+      Store
+    </ion-title>
+  </ion-navbar>
+    <ion-input class='Store-Input'
              type='text'
              placeholder='Test'
              (keypress)='onInputChange($event)'
              [(ngModel)]='searchGameName'>
   </ion-input>
+</ion-header>
+
+<ion-content padding
+             class='Store-Content'>
+
   <ion-spinner item-start
                name='crescent'
                class='spinnerGameList'

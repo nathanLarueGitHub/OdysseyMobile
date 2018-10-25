@@ -1,12 +1,14 @@
 page-store {
 
+  .Store-Input{
+    background-color: $Pale-Grey;
+    color: white;
+  }
+  
   .Store-Content{
     background-color: $Main-Grey;
 
-    .Store-Input{
-      background-color: $Pale-Grey;
-      color: white;
-    }
+
 
     .Store-Content-Card{
       background-color: $Pale-Grey;
