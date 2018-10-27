@@ -1,10 +1,10 @@
 page-store {
 
   .Store-Input{
-    background-color: $Pale-Grey;
+    background-color: $Ionic-Grey;
     color: white;
   }
-  
+
   .Store-Content{
     background-color: $Main-Grey;
 
@@ -16,6 +16,7 @@ page-store {
       padding-right: 0px;
       margin-left: 0px;
       margin-right: 0px;
+      width: 100%;
 
       .Store-Content-Card-Image-Holder{
         .Store-Content-Card-Image{
@@ -27,8 +28,16 @@ page-store {
         }
       }
 
-      .Store-Content-Card-Text{
-        color: white;
+      .Store-Text-Container{
+
+        .Store-Content-Card-Title{
+          color: white;
+        }
+
+        .Store-Content-Card-Text{
+          font-size: 9pt;
+          color: white;
+        }
       }
     }
 

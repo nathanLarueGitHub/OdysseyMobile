@@ -28,6 +28,7 @@ export class StorePage {
       this.cheapSharkServices.getExtensiveGameListByName(gameName).then( gameList => {
         this.gameList = gameList;
         this.isLoading = false;
+        console.log(this.gameList);
       });
       this.isLoading = true;
     }
