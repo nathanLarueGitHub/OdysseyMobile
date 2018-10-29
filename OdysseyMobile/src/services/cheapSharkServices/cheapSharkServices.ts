@@ -28,6 +28,11 @@ export class CheapSharkServices {
             game['retailPrice'] = response.gameInfo.retailPrice;
             game['salePrice'] = response.gameInfo.salePrice;
             game['storeID'] = response.gameInfo.storeID;
+
+            if(game['thumb'] === 'http://www.cheapshark.com/img/default_box_art.png'){
+              game['thumb'] = 'https://www.cal-sailing.org/components/com_easyblog/themes/wireframe/images/placeholder-image.png';
+            }
+
             return game;
           });
 

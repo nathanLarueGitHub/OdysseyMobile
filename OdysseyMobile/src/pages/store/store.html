@@ -1,17 +1,43 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="dark">
+    <ion-title text-center>
+      Store
+    </ion-title>
   </ion-navbar>
+    <ion-input class='Store-Input'
+             type='text'
+             placeholder='Enter game name'
+             (keypress)='onInputChange($event)'
+             [(ngModel)]='searchGameName'
+             text-center>
+  </ion-input>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content padding
+             class='Store-Content'>
+  <ion-spinner item-start
+               name='crescent'
+               class='spinnerGameList'
+               [hidden]='!isLoading'>
+  </ion-spinner>
+  <ion-card *ngFor='let game of gameList'
+            class='Store-Content-Card'
+            [hidden]='isLoading'>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2>
+          <ion-avatar item-start
+                      class='Store-Content-Card-Image-Holder'>
+            <img src='{{game.thumb}}'
+                 class='Store-Content-Card-Image'>
+          </ion-avatar>
+        </ion-col>
+        <ion-col class='Store-Text-Container'>
+          <h2 class='Store-Content-Card-Title'>{{game.external}}</h2>
+          <span class='Store-Content-Card-Text'>Current Price : {{game.retailPrice}}</span><br>
+          <span class='Store-Content-Card-Text'>Best Price : {{game.cheapest}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

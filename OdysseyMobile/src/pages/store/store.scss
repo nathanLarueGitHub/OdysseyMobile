@@ -1,3 +1,52 @@
 page-store {
 
+  .Store-Input{
+    background-color: $Ionic-Grey;
+    color: white;
+  }
+
+  .Store-Content{
+    background-color: $Main-Grey;
+
+
+
+    .Store-Content-Card{
+      background-color: $Pale-Grey;
+      padding-left: 0px;
+      padding-right: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+      width: 100%;
+
+      .Store-Content-Card-Image-Holder{
+        .Store-Content-Card-Image{
+          object-fit: cover;
+          height: 70px;
+          width: 55px;
+          border: 1px solid $Main-Grey;
+          object-position: 50% 50%;
+        }
+      }
+
+      .Store-Text-Container{
+
+        .Store-Content-Card-Title{
+          color: white;
+        }
+
+        .Store-Content-Card-Text{
+          font-size: 9pt;
+          color: white;
+        }
+      }
+    }
+
+    .spinnerGameList {
+      position: absolute;
+      fill: white;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 }

@@ -13,23 +13,25 @@ import { CheapSharkServices } from '../../services/cheapSharkServices/cheapShark
 })
 export class StorePage {
 
+  private searchGameName: string = '';
+  private gameList : Object[];
+  private isLoading : boolean = false;
+
   constructor(
     public navCtrl: NavController,
     public cheapSharkServices: CheapSharkServices,
-  ) {
-  }
+  ) {}
 
-  ngOnInit(){
-
-    // This is how you fetch a list of games with all the different values:
-    let testGameName = 'Borderlands';
-    this.cheapSharkServices.getExtensiveGameListByName(testGameName).then( gameList => {
-
-      // Work with the game list in here once it's returned
-      console.log(gameList);
-    });
-
-
+  onInputChange(event){
+    if(event.key.toLowerCase() === 'enter'){
+      const gameName: string = this.searchGameName;
+      this.cheapSharkServices.getExtensiveGameListByName(gameName).then( gameList => {
+        this.gameList = gameList;
+        this.isLoading = false;
+        console.log(this.gameList);
+      });
+      this.isLoading = true;
+    }
   }
 
 }
