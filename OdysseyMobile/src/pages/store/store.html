@@ -6,15 +6,15 @@
   </ion-navbar>
     <ion-input class='Store-Input'
              type='text'
-             placeholder='Test'
+             placeholder='Enter game name'
              (keypress)='onInputChange($event)'
-             [(ngModel)]='searchGameName'>
+             [(ngModel)]='searchGameName'
+             text-center>
   </ion-input>
 </ion-header>
 
 <ion-content padding
              class='Store-Content'>
-
   <ion-spinner item-start
                name='crescent'
                class='spinnerGameList'
@@ -22,7 +22,8 @@
   </ion-spinner>
   <ion-card *ngFor='let game of gameList'
             class='Store-Content-Card'
-            [hidden]='isLoading'>
+            [hidden]='isLoading'
+            (click)='onClickGameCard(game)'>
     <ion-grid>
       <ion-row>
         <ion-col col-2>
@@ -32,8 +33,10 @@
                  class='Store-Content-Card-Image'>
           </ion-avatar>
         </ion-col>
-        <ion-col>
-          <h2 class='Store-Content-Card-Text'>{{game.external}}</h2>
+        <ion-col class='Store-Text-Container'>
+          <h2 class='Store-Content-Card-Title'>{{game.external}}</h2>
+          <span class='Store-Content-Card-Text'>Current Price : {{game.retailPrice}}</span><br>
+          <span class='Store-Content-Card-Text'>Best Price : {{game.cheapest}}</span>
         </ion-col>
       </ion-row>
     </ion-grid>

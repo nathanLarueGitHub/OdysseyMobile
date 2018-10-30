@@ -1,0 +1,15 @@
+<div class='modal-background'>
+  <span class='modal-title'>{{gameObject.external}}</span>
+  <ion-grid class='modal-grid'>
+    <ion-row class='deal-store-row'
+             *ngFor='let deal of dealsList'>
+      <ion-col text-center>
+        <img src='https://www.cheapshark.com/{{deal.storeBanner}}'
+             class='deal-store-image'>
+      </ion-col>
+      <ion-col text-center>
+        {{deal.salePrice}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
