@@ -22,7 +22,8 @@
   </ion-spinner>
   <ion-card *ngFor='let game of gameList'
             class='Store-Content-Card'
-            [hidden]='isLoading'>
+            [hidden]='isLoading'
+            (click)='onClickGameCard(game)'>
     <ion-grid>
       <ion-row>
         <ion-col col-2>

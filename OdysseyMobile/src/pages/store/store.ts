@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 
 // Import Services
 import { CheapSharkServices } from '../../services/cheapSharkServices/cheapSharkServices'
+
+// Store game modal
+import { StoreGame } from '../../pages/game/store/storeGame';
 
 @Component({
   selector: 'page-store',
@@ -20,6 +23,7 @@ export class StorePage {
   constructor(
     public navCtrl: NavController,
     public cheapSharkServices: CheapSharkServices,
+    public modalCtrl: ModalController,
   ) {}
 
   onInputChange(event){
@@ -32,6 +36,12 @@ export class StorePage {
       });
       this.isLoading = true;
     }
+  }
+
+  onClickGameCard(gameObject : any){
+    console.log(gameObject);
+    let profileModal = this.modalCtrl.create(StoreGame, { gameObject : gameObject }, { cssClass : 'full-screen-modal' });
+    profileModal.present();
   }
 
 }

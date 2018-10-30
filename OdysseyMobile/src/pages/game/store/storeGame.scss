@@ -1,0 +1,37 @@
+.modal-background{
+  background-color: $Main-Grey;
+  height: 100%;
+  width: 100%;
+
+  .modal-title{
+    position:absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    color: white;
+    font-size: 15pt;
+    text-align: center;
+  }
+
+  .modal-grid{
+    position:absolute;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 5px;
+    padding: 0px;
+    background-color: $Ionic-Grey;
+    width: calc(100% - 32px);
+    color: white;
+    font-size: 12pt;
+
+    .deal-store-row{
+      border-bottom: 1px solid $Main-Grey;
+
+      .deal-store-image{
+        height: 25px;
+      }
+    }
+  }
+}

@@ -17,12 +17,16 @@ import { CheapSharkServices } from '../services/cheapSharkServices/cheapSharkSer
 // Angular Services
 import { HttpModule } from "@angular/http";
 
+// Import modules
+import { StoreGame } from '../pages/game/store/storeGame';
+
 @NgModule({
   declarations: [
     MyApp,
     LibraryPage,
     AccountPage,
     StorePage,
+    StoreGame,
     TabsPage
   ],
   imports: [
@@ -36,6 +40,7 @@ import { HttpModule } from "@angular/http";
     LibraryPage,
     AccountPage,
     StorePage,
+    StoreGame,
     TabsPage
   ],
   providers: [
