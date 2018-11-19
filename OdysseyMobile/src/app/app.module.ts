@@ -11,11 +11,16 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+// InAppBrowser for redirecting user to a platform's login service while in-app
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 // Import Injectables
-import { CheapSharkServices } from '../services/cheapSharkServices/cheapSharkServices'
+import { CheapSharkServices } from '../services/cheapSharkServices/cheapSharkServices';
+import { steamServices } from '../services/steamServices/steamServices';
 
 // Angular Services
 import { HttpModule } from "@angular/http";
+import { HttpClientModule } from '@angular/common/http';
 
 // Import modules
 import { StoreGame } from '../pages/game/store/storeGame';
@@ -32,9 +37,12 @@ import { StoreGame } from '../pages/game/store/storeGame';
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
-  bootstrap: [IonicApp],
+  bootstrap: [
+    IonicApp
+  ],
   entryComponents: [
     MyApp,
     LibraryPage,
@@ -47,7 +55,9 @@ import { StoreGame } from '../pages/game/store/storeGame';
     StatusBar,
     SplashScreen,
     CheapSharkServices,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    InAppBrowser,
+    steamServices
   ]
 })
 export class AppModule {}
