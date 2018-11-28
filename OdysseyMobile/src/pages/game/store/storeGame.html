@@ -1,5 +1,9 @@
 <div class='modal-background'>
-  <span class='modal-title'>{{gameObject.external}}</span>
+  <img class='modal-image' *ngIf='gameObject.steamAppID'src="https://steamcdn-a.akamaihd.net/steam/apps/{{gameObject.steamAppID}}/header.jpg">
+  <ion-item class='title-item' text-center>
+    <h2 class='modal-title'>{{gameObject.external}}</h2>
+    <p class='modal-description' *ngIf='steamInformation !== {}'>{{steamInformation.short_description}}</p>
+  </ion-item>
   <ion-grid class='modal-grid'>
     <ion-row class='deal-store-row'
              *ngFor='let deal of dealsList'>
@@ -8,7 +12,14 @@
              class='deal-store-image'>
       </ion-col>
       <ion-col text-center>
-        {{deal.salePrice}}
+      <div *ngIf='deal.price === deal.retailPrice'>
+        <span>{{deal.price}}</span>
+      </div>
+      <div *ngIf='deal.price !== deal.retailPrice'>
+        <span class='text-strikethrough'>{{deal.retailPrice}}&nbsp;</span>
+        <span>{{deal.price}}</span>
+        <span class='deal-store-sale'>&nbsp;{{deal.savings | number:'1.0-0'}}%&nbsp;</span>
+      </div>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -3,12 +3,14 @@ import { NavController, NavParams } from 'ionic-angular';
 
 // Import Services
 import { CheapSharkServices } from '../../../services/cheapSharkServices/cheapSharkServices';
+import { SteamServices } from '../../../services/steamServices/steamServices';
 
 @Component({
   selector: 'store-game',
   templateUrl: 'storeGame.html',
   providers: [
-    CheapSharkServices
+    CheapSharkServices,
+    SteamServices
   ]
 })
 
@@ -16,6 +18,7 @@ export class  StoreGame {
 
   private isLoading : boolean = true;
   private gameObject : any = {};
+  private steamInformation : any = {};
   private dealsList : Object[] = [];
   private storeList : Object[] = [];
 
@@ -23,13 +26,13 @@ export class  StoreGame {
     public navCtrl: NavController,
     public navParams: NavParams,
     public cheapSharkServices : CheapSharkServices,
+    public steamServices : SteamServices
   ) {
     this.gameObject = this.navParams.get('gameObject');
-    let dealListPromise : Promise<any> = this.cheapSharkServices.getGameDealsList(this.gameObject.external).then( dealsList => {
-      dealsList.forEach( deal => {
-        if(deal.title === this.gameObject.external){
-          this.dealsList.push(deal);
-        }
+
+    let dealListPromise : Promise<any> = this.cheapSharkServices.getGameInformationById(this.gameObject.gameID).then( gameInformation => {
+      gameInformation['deals'].forEach( deal => {
+        this.dealsList.push(deal);
       });
     });
 
@@ -45,7 +48,6 @@ export class  StoreGame {
           }
         });
       });
-      console.log(this.dealsList);
     });
   }
 }

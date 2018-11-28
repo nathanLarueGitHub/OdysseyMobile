@@ -6,6 +6,17 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content class='Library-Content'
+             padding>
+  <ion-card class='Game-Card'
+            *ngFor='let game of gameList'>
+    <ion-item class='Card-Item'>
+      <ion-avatar item-start
+                  class='Card-Img'>
+        <img class='Card-Inner'
+             src='http://cdn.steamstatic.com/steamcommunity/public/images/apps/{{game.appid}}/{{game.img_icon_url}}.jpg'>
+      </ion-avatar>
+      <h2 class='Card-Title'>{{game.name}}</h2>
+    </ion-item>
+  </ion-card>
 </ion-content>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Events } from 'ionic-angular';
+
+import { SteamServices } from '../../services/steamServices/steamServices';
 
 @Component({
   selector: 'page-library',
@@ -7,8 +9,20 @@ import { NavController } from 'ionic-angular';
 })
 export class LibraryPage {
 
-  constructor(public navCtrl: NavController) {
+  public gameList : Object[] = [];
 
+  constructor(
+    public navCtrl: NavController,
+    public steamServices: SteamServices,
+    public events: Events
+  ) {
+    this.steamServices = steamServices;
+    events.subscribe('tab:clicked', (root) => {
+      this.updatedLibrary();
+    });
   }
 
+  updatedLibrary(){
+    this.gameList = this.steamServices.getSteamGamesOwned();
+  }
 }

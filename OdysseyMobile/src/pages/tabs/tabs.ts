@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Events } from 'ionic-angular';
 
 import { LibraryPage } from '../library/library';
 import { AccountPage } from '../account/account';
@@ -14,7 +15,11 @@ export class TabsPage {
   tab2Root = LibraryPage;
   tab3Root = AccountPage;
 
-  constructor() {
+  constructor(
+    public events: Events
+  ) {}
 
+  tabChanged(){
+    this.events.publish('tab:clicked', 'page');
   }
 }

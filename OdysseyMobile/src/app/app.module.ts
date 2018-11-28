@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, Events } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { LibraryPage } from '../pages/library/library';
@@ -13,6 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 // Import Injectables
 import { CheapSharkServices } from '../services/cheapSharkServices/cheapSharkServices'
+import { SteamServices } from '../services/steamServices/steamServices'
 
 // Angular Services
 import { HttpModule } from "@angular/http";
@@ -27,7 +28,7 @@ import { StoreGame } from '../pages/game/store/storeGame';
     AccountPage,
     StorePage,
     StoreGame,
-    TabsPage
+    TabsPage,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +48,7 @@ import { StoreGame } from '../pages/game/store/storeGame';
     StatusBar,
     SplashScreen,
     CheapSharkServices,
+    SteamServices,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

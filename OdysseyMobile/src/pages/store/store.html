@@ -20,25 +20,72 @@
                class='spinnerGameList'
                [hidden]='!isLoading'>
   </ion-spinner>
-  <ion-card *ngFor='let game of gameList'
-            class='Store-Content-Card'
-            [hidden]='isLoading'
-            (click)='onClickGameCard(game)'>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-2>
-          <ion-avatar item-start
-                      class='Store-Content-Card-Image-Holder'>
-            <img src='{{game.thumb}}'
-                 class='Store-Content-Card-Image'>
-          </ion-avatar>
-        </ion-col>
-        <ion-col class='Store-Text-Container'>
-          <h2 class='Store-Content-Card-Title'>{{game.external}}</h2>
-          <span class='Store-Content-Card-Text'>Current Price : {{game.retailPrice}}</span><br>
-          <span class='Store-Content-Card-Text'>Best Price : {{game.cheapest}}</span>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
+  <div *ngFor='let game of gameList'
+       [hidden]='isLoading'
+       (click)='onClickGameCard(game)'>
+
+    <!-- If Game has a sale-->
+    <ion-card class='Store-Content-Card Cheaper-Game'
+              *ngIf='game.cheapest < game.retailPrice'>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2>
+            <ion-avatar item-start
+                        class='Store-Content-Card-Image-Holder'>
+              <img src='{{game.thumb}}'
+                   class='Store-Content-Card-Image'>
+            </ion-avatar>
+          </ion-col>
+          <ion-col class='Store-Text-Container'>
+            <img *ngIf='game.isInLibrary' class='Store-InLibrary' src='../../assets/imgs/inLibrary.png'>
+            <h2 class='Store-Content-Card-Title'>{{game.external}}</h2>
+            <span class='Store-Content-Card-Text'>Price :&nbsp;</span>
+            <span class='Store-Content-Card-Text text-strikethrough text-italic'>{{game.retailPrice}}&nbsp;</span>
+            <span class='Store-Content-Card-Text'>{{game.cheapest}}</span>
+            <span class='Store-Content-Card-Text percentage-sale'>&nbsp; {{((1 - (game.cheapest / game.retailPrice)) * 100) | number:'1.0-0'}}%&nbsp;</span><br>
+
+            <span class='Store-Content-Card-Text'>Currently available in </span>
+            <span class='Store-Content-Card-Text' *ngIf='game.storesList.length < 2'>a single store.</span>
+            <span class='Store-Content-Card-Text' *ngIf='game.storesList.length >= 2'>{{game.storesList.length}} stores:</span><br>
+            <div *ngFor='let store of game.storesList'
+                 class='Store-Content-Card-Img-Container'>
+              <img class='Store-Content-Card-Img'
+                   src='https://www.cheapshark.com/{{store.images.logo}}'>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+    <!-- If Game has no sale-->
+    <ion-card class='Store-Content-Card'
+             *ngIf='game.cheapest >= game.retailPrice'>
+     <ion-grid>
+       <ion-row>
+         <ion-col col-2>
+           <ion-avatar item-start
+                       class='Store-Content-Card-Image-Holder'>
+             <img src='{{game.thumb}}'
+                  class='Store-Content-Card-Image'>
+           </ion-avatar>
+         </ion-col>
+         <ion-col class='Store-Text-Container'>
+           <img *ngIf='game.isInLibrary' class='Store-InLibrary' src='../../assets/imgs/inLibrary.png'>
+           <h2 class='Store-Content-Card-Title'>{{game.external}}</h2>
+           <span class='Store-Content-Card-Text'>Price : {{game.retailPrice}}</span><br>
+
+           <span class='Store-Content-Card-Text'>Currently available in </span>
+           <span class='Store-Content-Card-Text' *ngIf='game.storesList.length < 2'>a single store.</span>
+           <span class='Store-Content-Card-Text' *ngIf='game.storesList.length >= 2'>{{game.storesList.length}} stores.</span><br>
+
+           <div *ngFor='let store of game.storesList'
+                class='Store-Content-Card-Img-Container'>
+             <img class='Store-Content-Card-Img'
+                  src='https://www.cheapshark.com/{{store.images.logo}}'>
+           </div>
+         </ion-col>
+       </ion-row>
+     </ion-grid>
+    </ion-card>
+  </div>
 </ion-content>

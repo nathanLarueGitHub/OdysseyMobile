@@ -3,24 +3,40 @@
   height: 100%;
   width: 100%;
 
-  .modal-title{
-    position:absolute;
-    top: 20px;
-    left: 50%;
-    transform: translate(-50%, 0);
+  .modal-image{
     width: 100%;
-    color: white;
-    font-size: 15pt;
-    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 2px solid $Main-Purple;
+  }
+
+  .title-item{
+    background-color: rgba(0,0,0,0);
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 100%;
+
+    div{
+      border-bottom: 0px !important;
+    }
+
+    .modal-title{
+      color: white;
+      font-size: 15pt;
+    }
+
+    .modal-description{
+      color: white;
+      font-size: 10pt;
+      height: auto;
+    }
   }
 
   .modal-grid{
-    position:absolute;
-    top: 60px;
-    left: 50%;
-    transform: translate(-50%, 0);
     border-radius: 5px;
-    padding: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
     background-color: $Ionic-Grey;
     width: calc(100% - 32px);
     color: white;
@@ -31,6 +47,12 @@
 
       .deal-store-image{
         height: 25px;
+      }
+
+      .deal-store-sale{
+        vertical-align: top;
+        background-color: $Main-Purple;
+        font-size: 7pt;
       }
     }
   }

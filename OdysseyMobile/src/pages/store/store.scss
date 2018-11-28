@@ -8,7 +8,16 @@ page-store {
   .Store-Content{
     background-color: $Main-Grey;
 
+    .Cheaper-Game{
+      border: 2px solid $Main-Purple;
+      font-size: 7pt;
+    }
 
+    .percentage-sale{
+      vertical-align: top;
+      background-color: $Main-Purple;
+      font-size: 7pt !important;
+    }
 
     .Store-Content-Card{
       background-color: $Pale-Grey;
@@ -30,6 +39,13 @@ page-store {
 
       .Store-Text-Container{
 
+        .Store-InLibrary{
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          width: 100px;
+        }
+
         .Store-Content-Card-Title{
           color: white;
         }
@@ -37,6 +53,17 @@ page-store {
         .Store-Content-Card-Text{
           font-size: 9pt;
           color: white;
+        }
+
+        .Store-Content-Card-Img-Container{
+          display:inline-block;
+          margin-top: 4px;
+
+          .Store-Content-Card-Img{
+            width: 24px;
+            height: 24px;
+            margin-right: 4px;
+          }
         }
       }
     }

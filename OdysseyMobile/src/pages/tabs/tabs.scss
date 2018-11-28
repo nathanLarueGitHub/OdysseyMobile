@@ -1,8 +1,8 @@
 .tabbar {
 	a.tab-button[aria-selected=true] {
-		color: #d95eff;
+		color: $Main-Purple;
 		.tab-button-icon {
-			color: #d95eff;
+			color: $Main-Purple;
 		}
 	}
 }

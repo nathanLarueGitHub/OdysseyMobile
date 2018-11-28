@@ -1,3 +1,26 @@
-page-library{
+.Library-Content {
+  background-color: $Main-Grey;
+  width: 100%;
+  height: 100%;
 
+  .Game-Card{
+    background-color: $Pale-Grey;
+
+    .Card-Item{
+      background-color: $Pale-Grey;
+
+      .Card-Img{
+        width: 20px;
+        height: 20px;
+
+        .Card-Inner{
+          border-radius: 0px !important;
+        }
+      }
+
+      .Card-Title{
+        color:white;
+      }
+    }
+  }
 }

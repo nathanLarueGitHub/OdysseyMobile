@@ -22,7 +22,12 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-
+.text-strikethrough {
+    text-decoration: line-through;
+}
+.text-italic {
+    font-style: italic;
+}
 
 
 // Named Color Variables
